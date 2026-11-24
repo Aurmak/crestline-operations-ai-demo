@@ -7,7 +7,7 @@ import { createInterface } from 'node:readline';
 
 // ---- Session settings (change these if you like) ----
 const IDLE_MINUTES = 30;   // signed out after this long with no activity
-const MAX_HOURS = 8;       // signed out after this long no matter what
+const MAX_HOURS = 2;       // signed out after this long no matter what
 // -----------------------------------------------------
 
 const lines = createInterface({ input: process.stdin })[Symbol.asyncIterator]();
@@ -53,10 +53,9 @@ form .btn{width:100%;margin-top:12px}
 .msg{border-radius:8px;padding:9px 12px;font-size:12.5px;margin-bottom:14px;display:none}
 .msg.err{display:block;background:var(--red-soft);color:var(--red)}
 .msg.info{display:block;background:var(--amber-soft);color:var(--amber)}
-.foot{max-width:380px;text-align:center;color:var(--muted);font-size:12px}
 </style></head><body>
 <div class="crest" aria-hidden="true"><svg width="56" height="56" viewBox="0 0 64 64" fill="none"><path d="M32 6l22 8v16c0 14-9.5 24-22 28C19.5 54 10 44 10 30V14l22-8z" fill="#f4c64e" stroke="#fff" stroke-width="2.5"/><path d="M22 32l7 7 13-15" stroke="#17594a" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-<div class="brand"><h1>Crestline Institute of Safety &amp; Quality</h1><p>Operations AI · sign in to continue</p></div>
+<div class="brand"><h1>Crestline Institute of Safety &amp; Quality</h1></div>
 <form id="f">
 <div id="m" class="msg" role="alert"></div>
 <div class="f"><label for="em">Username</label><input id="em" type="text" autocomplete="username" autocapitalize="none" spellcheck="false" required></div>
@@ -64,7 +63,6 @@ form .btn{width:100%;margin-top:12px}
 <label class="r"><input id="rm" type="checkbox" checked> Keep me signed in on this device</label>
 <button id="b" class="btn">Sign in</button>
 </form>
-<div class="foot">Private access. Sessions end after inactivity. Built by AURMAK.</div>
 <script>
 var D=${DATA},SK='crestline-session';
 var u8=function(s){return Uint8Array.from(atob(s),function(c){return c.charCodeAt(0)})};
