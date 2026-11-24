@@ -112,6 +112,7 @@ function watch(cfg){
   },1000);
 }
 function show(html){
+  if(document.readyState!=='complete'){addEventListener('load',function(){show(html)},{once:true});return}
   var w='<scr'+'ipt>('+watch.toString()+')('+JSON.stringify({sk:SK,idle:D.idle,max:D.max})+')</scr'+'ipt>';
   var i=html.lastIndexOf('</body>');
   document.open();document.write(i<0?html+w:html.slice(0,i)+w+html.slice(i));document.close();
